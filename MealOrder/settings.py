@@ -44,8 +44,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    # Add whitenoise for Heroku
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',     # Add whitenoise for Heroku
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
