@@ -10,7 +10,7 @@ class Order(models.Model):
     PRODUCT_QUANTITY_CHOICES = tuple([(str(i), str(i)) for i in range(1, 10)])
 
     quantity = models.CharField(max_length=2, choices=PRODUCT_QUANTITY_CHOICES)
-    order_no = models.IntegerField(primary_key=True,)
+    order_no = models.IntegerField(primary_key=True, default=None)
     # meal = models.ForeignKey(Meal, on_delete=DO_NOTHING, blank=True, null=True)
     meal = models.ForeignKey(Meal, on_delete=DO_NOTHING)
     ordered_at = models.DateTimeField(auto_now_add=True)
