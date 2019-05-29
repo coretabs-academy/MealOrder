@@ -17,13 +17,15 @@ def make_order(request, id):
             requester = form.cleaned_data['requester']
             order, status = Order.objects.get_or_create(meal=meal, quantity=quantity, requester=requester)
 
-            context = {'order': order}
+            print(quantity)
+            print(requester)
+            context = {'order': order, 'form': form}
             return render(request, 'orders/order_submitted.html', context)
 
     else:
         form = OrderForm()
 
-    return redirect('index.html')
+    return render(request, 'orders/order_submitted.html')
 
 
 

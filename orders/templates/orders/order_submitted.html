@@ -4,14 +4,83 @@
 
 {% block content %}
 
-Order has been submitted successfully ! <br><br>
+<!--Order has been submitted successfully ! <br><br>-->
+
+
 
 <!--{{ order }}<br><br>-->
+    <section class="list-order">
+        <h1>Order list</h1>
+            <div class="card-container">
+                <div class="meal-card">
+                    <div class="ribbon"></div>
+                    <img src="{{ order.meal.image.url }}" alt="">
+                    <h2>{{ order.meal.name }}</h2>
+                    <p>{{ order.meal.description }}</p>
+                    <div class="meal-info">
+                        <div class="meal-weight">250g</div>
+                        <div class="meal-price">{{ order.meal.price }} $</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
 
-Order details:<br>
-Meal: {{ order.meal }}<br>
-Quantity: {{ order.quantity }}<br>
-Requester:  {{ order.requester }}<br>
-Ordered at:  {{ order.ordered_at }}<br><br>
+
+        <section class="confirm-order">
+            <div class="confirm-image"><img src="{{ meal.image.url }}" ></div>
+            <div class="confirm-form">
+                <h1>{{ meal.name }}</h1>
+
+                <form>
+
+                <div class="input-holder">
+                    <label>Number of items</label>
+                    <input type="number">
+
+                </div>
+
+                <div class="input-holder">
+                    <label>Client Name: </label>
+                    <input type="text">
+
+                </div>
+
+                <div class="input-holder">
+                    <label>Address: </label>
+                    <input type="text">
+                </div>
+
+                <div class="form-footer">
+                    <div class="form-btn">
+                        <button type="submit">Done <i class="fas fa-check"></i></button>
+                    </div>
+                    <div class="order-price">
+                        {{ order.meal.price }}
+                    </div>
+                </div>
+                </form>
+            </div>
+        </section>
+
+
+<div class="overlay">
+    <div class="meal-image">
+        <img src="https://images.pexels.com/photos/1600711/pexels-photo-1600711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+    </div>
+    <div class="success-alert">
+        <p style="text-align: center;">Thanks {{ order.requester }} !</p>
+        <p style="text-align: center;">Your order submitted successful.<i class="fas fa-check"></i></p>
+        <p style="font-size: 25px;">Order details:</p>
+        <p style="font-size: 25px;">{{ order }}</p><br>
+
+        <nobr><p style="font-size: 25px;"> Coretabs community says,</p><p style="color: red; font-size: 25px;"> Bon appétit &#128150</p></nobr>
+    </div>
+</div>
+<!--Order details:<br>-->
+<!--Meal: {{ order.meal }}<br>-->
+<!--Quantity: {{ order.quantity }}<br>-->
+<!--Requester:  {{ order.requester }}<br>-->
+<!--Ordered at:  {{ order.ordered_at }}<br><br>-->
 
 {% endblock %}

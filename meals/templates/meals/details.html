@@ -3,16 +3,62 @@
 {% block title %}Meal details{% endblock %}
 
 {% block content %}
+<section class="list-order">
 
-<h3>{{ meal.name }}</h3>
-<img src="{{ meal.image.url }}" class="meal_img"><br><br>
-Price: {{ meal.price }} $ <br>
-<br>
-    <form action="{% url 'make_order' meal.id %}" method="POST">
-        {% csrf_token %}
-            {{ form }}
-        <input type="submit" value="make_order">
+ <h1>Order list</h1>
+            <div class="card-container">
+                <div class="meal-card">
+                    <div class="ribbon"></div>
+                    <img src="{{ meal.image.url }}" alt="">
+                    <h2>{{ meal.name }}</h2>
+                    <p>{{ meal.description }}</p>
+                    <div class="meal-info">
+                        <div class="meal-weight">250g</div>
+                        <div class="meal-price">{{ meal.price }} $</div>
+                    </div>
+                </div>
+            </div>
+</section>
 
-    </form>
+<!--<h3>{{ meal.name }}</h3>-->
+<!--<img src="{{ meal.image.url }}" class="meal_img"><br><br>-->
+<!--Price: {{ meal.price }} $ <br>-->
+<!--<br>-->
+
+
+<section class="confirm-order">
+            <div class="confirm-image"><img src="{{ meal.image.url }}" ></div>
+            <div class="confirm-form">
+                <h1>{{ meal.name }}</h1>
+
+                <form action="{% url 'make_order' meal.id %}" method="POST">
+                    {% csrf_token %}
+
+                <div class="input-holder">
+                    <label>Number of items</label>
+                        {{ form.quantity }}
+                </div>
+
+                <div class="input-holder">
+                    <label>Client Name: </label>
+                    {{ form.requester }}
+                </div>
+
+                <div class="input-holder">
+                    <label>Address: </label>
+                    <input type="text">
+                </div>
+
+                <div class="form-footer">
+                    <div class="form-btn">
+                        <button type="submit" value="make_order">Done <i class="fas fa-check"></i></button>
+                    </div>
+                    <div class="order-price">
+                        {{ meal.price }}
+                    </div>
+                </div>
+                </form>
+            </div>
+        </section>
 
 {% endblock %}

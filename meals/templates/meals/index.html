@@ -1,15 +1,45 @@
 {% extends "base.html" %}   # MealOrder/templates/base.html
 
 {% block title %}Hot Meals{% endblock %}
+{% block catergory %}
+
+{% endblock %}
 
 {% block content %}
 
 {% for cat in cats %}
-    <h2>{{ cat }} Category</h2><br>
+    <h1>{{ cat }}</h1>
+
+        <div class="card-container">
+
     {% for meal in cat.meals_by_cat %}
-        <img src="{{ meal.image.url }}" class="meal_img"><br><br>
-        <a href="{{ meal.get_absolute_url }}">{{ meal }}</a><br><br><br>
+        <!--<img src="{{ meal.image.url }}" class="meal_img"><br><br>-->
+        <!--<a href="{{ meal.get_absolute_url }}">{{ meal }}</a><br><br><br>-->
+
+                <div class="meal-card">
+                    <div class="ribbon"></div>
+                        <img src="{{ meal.image.url }}" class="meal_img"><br><br>
+
+                    <!--<img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">-->
+                    <h2>{{ meal }}</h2>
+                    <p>{{ meal.description }}</p>
+                    <div class="meal-info">
+                        <div class="meal-weight">250g</div>
+                        <div class="meal-price">{{ meal.price }} $</div>
+                    </div>
+                        <!--<form action="{% url 'make_order' meal.id %}" method="POST">-->
+                            <!--{% csrf_token %}-->
+                                <!--{{ form }}-->
+                            <!--<input type="submit" value="Order" class="order-btn">-->
+
+                        <!--</form>-->
+                    <a href="{{ meal.get_absolute_url }}" class="order-btn">Order</a>
+
+                </div>
+
     {% endfor %}
+        </div>
+
 {% endfor %}
 
 
