@@ -46,7 +46,7 @@
 
                 <div class="input-holder">
                     <label>Address: </label>
-                    <input type="text">
+                    {{ form.address }}
                 </div>
 
                 <div class="form-footer">
@@ -54,7 +54,7 @@
                         <button type="submit" value="make_order">Done <i class="fas fa-check"></i></button>
                     </div>
                     <div class="order-price">
-                        {{ meal.price }}
+                        {{ meal.price }} per item
                     </div>
                 </div>
                 </form>

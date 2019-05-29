@@ -9,5 +9,5 @@ class OrderForm(forms.ModelForm):
 
     class Meta:
         model = models.Order
-        fields = ['quantity', 'requester']
+        fields = ['quantity', 'requester', 'address']
 

@@ -4,9 +4,40 @@
 
 {% block content %}
 
-List of orders:<br>
-{% for order in orders %}
-    {{order.order_no}}. {{ order }} - Ordered at: {{ order.ordered_at }}<br>
-{% endfor %}
+<!--List of orders:<br>-->
+<!--{% for order in orders %}-->
+    <!--{{order.order_id}}. {{ order }} - Ordered at: {{ order.ordered_at }}<br>-->
+<!--{% endfor %}-->
+
+<section class="list-order">
+            <h1>Orders</h1>
+            <div class="card-container">
+            {% for order in orders %}
+                <div class="meal-card">
+                    <div class="ribbon"></div>
+                    <img src="{{ order.meal.image.url }}" alt="">
+                    <h2>{{ order.meal.name }}</h2>
+                    <div class="customer-details">
+                        <strong>Name:</strong> {{ order.requester }}
+                    </div>
+
+                    <div  class="customer-details">
+                        <strong>Address:</strong> {{ order.address }}
+                    </div>
+
+                    <div  class="customer-details">
+                        <strong>No. of items:</strong> {{ order.quantity }}
+                    </div>
+
+                    <div class="meal-info">
+                        <div class="meal-weight">250g</div>
+                        <div class="meal-price">{{ order.total }}</div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+            </div>
+        </section>
 
 {% endblock %}
