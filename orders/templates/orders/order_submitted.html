@@ -6,7 +6,7 @@
 
 <!--Order has been submitted successfully ! <br><br>-->
 
-{{ order.total }}<br><br>
+<!--{{ order.total }}<br><br>-->
     <section class="list-order">
         <h1>Order list</h1>
             <div class="card-container">
@@ -70,7 +70,8 @@
         <p style="text-align: center;">Thanks {{ order.requester }} !</p>
         <p style="text-align: center;">Your order submitted successful.<i class="fas fa-check"></i></p>
         <p style="font-size: 25px;">Order details:</p>
-        <p style="font-size: 25px;">{{ order }}</p><br>
+        <p style="font-size: 25px;">{{ order }}</p>
+        <p style="font-size: 25px;">Total: {{ order.total }} $</p><br>
 
         <nobr><p style="font-size: 25px;"> Coretabs community says,</p><p style="color: red; font-size: 25px;"> Bon appétit &#128150</p></nobr>
     </div>

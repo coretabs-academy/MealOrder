@@ -9,7 +9,7 @@ from PIL import Image
 class Category(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='categories_pics', default='default_cat_img.png')
-    description = models.TextField(blank=True, max_length=10000)
+    description = models.CharField(blank=True, max_length=1000)
     slug = models.SlugField(unique=True, blank=True)
 
     objects = models.Manager()
@@ -36,7 +36,7 @@ class Meal(models.Model):
     image = models.ImageField(upload_to='meals_pics', default='default_meal_img.png')
     price = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
-    description = models.TextField(blank=True)
+    description = models.CharField(blank=True, max_length=1000)
     slug = models.SlugField(unique=True, blank=True)
     category = models.ForeignKey(Category, related_name="products", on_delete=models.CASCADE)
 
