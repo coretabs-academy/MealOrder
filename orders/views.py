@@ -17,9 +17,7 @@ def make_order(request, id):
             requester = form.cleaned_data['requester']
             order, status = Order.objects.get_or_create(meal=meal, quantity=quantity, requester=requester)
 
-            print(quantity)
-            print(requester)
-            context = {'order': order, 'form': form}
+            context = {'order': order, }
             return render(request, 'orders/order_submitted.html', context)
 
     else:
