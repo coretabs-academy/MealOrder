@@ -70,7 +70,7 @@
         <p style="text-align: center;">Thanks {{ order.requester }} !</p>
         <p style="text-align: center;">Your order submitted successful.<i class="fas fa-check"></i></p>
         <p style="font-size: 25px;">Order details:</p>
-        <p style="font-size: 25px;">{{ order }}</p>
+        <p style="font-size: 25px;">{{ order.quantity }} {{ order.meal }}, ordered @ {{ order.ordered_at }}</p>
         <p style="font-size: 25px;">Total: {{ order.total }} $</p><br>
 
         <nobr><p style="font-size: 25px;"> Coretabs community says,</p><p style="color: red; font-size: 25px;"> Bon appétit &#128150</p></nobr>
