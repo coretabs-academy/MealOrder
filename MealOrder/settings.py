@@ -25,7 +25,7 @@ SECRET_KEY = 'h8=korh=2l!gv=glxh++uy!#c1o*v@d_!!+wwt5@fum@g+_lwd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['coretabs-mealordersapp.herokuapp.com']
+ALLOWED_HOSTS = ['coretabs-mealordersapp.herokuapp.com', '*']
 
 
 # Application definition
@@ -127,7 +127,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # Main static file should be in the main path which contains also manage.py.
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"), '../media/img/']
+STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
 
 STATIC_URL = '/static/'
 
@@ -153,5 +153,8 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#USE_X_FORWARDED_HOST = True
+#FORCE_SCRIPT_NAME = '/server/ramadan-contest-2019/noura-tarek-othman'
+#FORCE_SCRIPT_NAME = '/lol'

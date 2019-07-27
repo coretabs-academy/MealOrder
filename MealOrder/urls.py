@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include, re_path
 # from django.conf.urls import url    # , include
 from meals import views as meals_views
 from orders import views as orders_views
@@ -50,3 +50,4 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
+#urlpatterns = [re_path(r'^server/ramadan-contest-2019/noura-tarek-othman/', include(urlpatterns))]
